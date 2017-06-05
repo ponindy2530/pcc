@@ -1,4 +1,5 @@
-import { PccModule } from './pcc/pcc.module';
+import { PSharedModule } from './p-shared/p-module/p-shared.module';
+import { ItemModule } from './pcc/item/item.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -6,25 +7,29 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
+import { PccChannelComponent } from './pcc/pview/pcc-channel/pcc-channel.component';
 
 
 const routes: Routes = [
-  { path: 'pccchannel', loadChildren: './pcc/pcc.module' },
+  { path: '', redirectTo: '/pccchannel', pathMatch: 'full' },
+  { path: 'pccchannel', component: PccChannelComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PccChannelComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    PccModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ItemModule,
+    PSharedModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

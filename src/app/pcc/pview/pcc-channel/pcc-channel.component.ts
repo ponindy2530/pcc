@@ -9,6 +9,9 @@ export class PccChannelComponent implements OnInit {
 
   constructor() { }
 
+
+  apiKeyVdoList:number = 1;
+
   ngOnInit() {
   }
 

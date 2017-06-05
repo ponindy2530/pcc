@@ -2,7 +2,7 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PSharedService } from './../p-service/p-shared.service';
-
+import {Message} from 'primeng/primeng';
 @Component({
   selector: 'app-p-shared',
   templateUrl: './p-shared.component.html',
@@ -17,7 +17,7 @@ export class PSharedComponent implements OnInit {
     public _cookieService: CookieService
   ) { }
 
-
+public msgs: Message[];
   models: any = [];
   models1: any = [];
   models2: any = [];

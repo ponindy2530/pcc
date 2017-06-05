@@ -1,0 +1,57 @@
+<div class="collection-header">
+  <h5> <i class="material-icons">mode_edit</i> <b>แบบฟอร์มบันทึกข้อมูล VDO</b></h5>
+</div>
+<div class="row">
+  <div class="col s12 m12 l12">
+    <div class="card">
+      <div class="row">
+        <div class="container">
+          <br />
+          <form (ngSubmit)="save();">
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <label class="pbz"> ชื่อเรื่อง / หัวข้อ</label>
+                <input class="pbz" [(ngModel)]="model.subject" name="subject" id="subject" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <label class="pbz"> รายละเอียด</label>
+                <textarea  [(ngModel)]="model.article" name="article" id="article" class="materialize-textarea"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <label class="pbz"> VDO URL</label>
+                <input class="pbz" [(ngModel)]="model.url_youtube" name="url_youtube" id="url_youtube" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <label class="pbz"> อัพโหลด VDO</label>
+                <p-growl [value]="msgs"></p-growl>
+                <p-fileUpload name="file" url="http://164.115.22.73/p/pon-api/uploadpccfile.php" (onUpload)="onUpload($event)" multiple="multiple" auto="auto" accept=".mp4,.avi"
+                  maxFileSize="5000000">
+                  <ng-template pTemplate type="content">
+                    <ul *ngIf="uploadedFiles.length">
+                      <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                    </ul>
+                  </ng-template>
+                </p-fileUpload>
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <div class="col s12 center">
+                  <button class="waves-effect waves-light btn"><i class="material-icons left">add</i> บันทึก</button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

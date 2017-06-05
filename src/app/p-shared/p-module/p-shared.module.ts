@@ -15,7 +15,10 @@ import {
     ButtonModule,
     AutoCompleteModule,
     AccordionModule,
-    FieldsetModule
+    FieldsetModule,
+    FileUploadModule,
+    GrowlModule,
+    MessagesModule
 } from 'primeng/primeng';
 
 import {
@@ -77,7 +80,10 @@ import * as highcharts from 'highcharts';
         MdToolbarModule,
         MdAutocompleteModule,
         MdChipsModule,
-        FieldsetModule
+        FieldsetModule,
+        FileUploadModule,
+        GrowlModule,
+        MessagesModule
 
 
     ]
