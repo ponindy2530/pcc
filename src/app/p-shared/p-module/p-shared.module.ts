@@ -1,3 +1,4 @@
+import { PLoginService } from './../p-service/p-login.service';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -39,6 +40,7 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { ChartModule } from 'angular2-highcharts';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 import * as highcharts from 'highcharts';
+
 
 
 
@@ -97,6 +99,7 @@ export class PSharedModule {
             providers: [
                 CookieService,
                 PSharedService,
+                PLoginService,
                 { provide: HighchartsStatic, useValue: highcharts }
             ]
         };

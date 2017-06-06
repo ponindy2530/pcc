@@ -2,11 +2,12 @@ import { PSharedComponent } from './../../../../p-shared/p-component/p-shared.co
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-c-slide-out',
-  templateUrl: './c-slide-out.component.html',
-  styleUrls: ['./c-slide-out.component.css']
+  selector: 'app-c-login',
+  templateUrl: './c-login.component.html',
+  styleUrls: ['./c-login.component.css']
 })
-export class CSlideOutComponent extends PSharedComponent implements OnInit {
+export class CLoginComponent extends PSharedComponent implements OnInit {
+
 
 
   ngOnInit() {
@@ -14,6 +15,7 @@ export class CSlideOutComponent extends PSharedComponent implements OnInit {
     const tokenPayload = localStorage.getItem('tokenPayload');
     if (tokenPayload)
       this.objPayload = JSON.parse(this._pLoginService.atou(localStorage.getItem('tokenPayload')));
+
     this.loginPage = this._pLoginService.loginPath('login');
     this.logoutPage = this._pLoginService.loginPath('logout');
     this.tokenSignature = this._cookieService.get('tokenSignature');

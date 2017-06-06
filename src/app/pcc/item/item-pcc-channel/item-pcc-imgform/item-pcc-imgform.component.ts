@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Pcmodel } from './../../../pcc-model';
 import { PSharedComponent } from './../../../../p-shared/p-component/p-shared.component';
 import swal from 'sweetalert2';
@@ -11,7 +11,7 @@ export class ItemPccImgformComponent extends PSharedComponent implements OnInit 
 
 
 
-   model = new Pcmodel();
+  model = new Pcmodel();
 
   ngOnInit() {
     this.updateId = 0;
@@ -43,14 +43,26 @@ export class ItemPccImgformComponent extends PSharedComponent implements OnInit 
     this.updateId = 0;
     this.uploadedFiles = [];
     this.model = new Pcmodel();
+    this.gotolist();
+  }
+
+  @Output() gtolist = new EventEmitter()
+
+  gotolist() {
+    this.gtolist.emit(3);
   }
 
   save() {
-    console.log(this.model);
-    console.log(this.updateId);
+    this.objPayload = JSON.parse(this._pLoginService.atou(localStorage.getItem('tokenPayload')));
+    // console.log(this.model);
+    // console.log(this.updateId);
     if (this.ckfile == true) {
       this.model.files = JSON.stringify(this.pccfile);
     }
+    this.model.cid = this.objPayload.CID;
+    this.model.hcode = this.objPayload.HOSPCODE;
+    this.model.hname = this.objPayload.HOSPNAME;
+    this.model.fullname = `${this.objPayload.PRENAME}${this.objPayload.NAME}' '${this.objPayload.LASTNAME}`;
     this.model.st = 2;
     this.pd = this.model;
     console.log(this.pd);

@@ -1,9 +1,12 @@
 <ul class="collection">
-  <li class="collection-item avatar" *ngFor="let item of models" >
-    <i class="material-icons circle red">play_arrow</i>
+  <li class="collection-item avatar" *ngFor="let item of models">
+    <i class="material-icons circle red" *ngIf="item.st==1">play_arrow</i>
+    <i class="material-icons circle  light-blue" *ngIf="item.st==2">perm_media</i>
     <span class="title">เรื่อง / หัวข้อ : {{item.subject}}</span>
     <p>ผู้ส่ง : {{item.fullname}}</p>
-    <p>สถานบริการ : {{item.hcode}}</p>
+    <p>สถานบริการ : {{item.hname}}</p>
+    <p *ngIf="item.url_youtube!=''">URL : <a [href]="item.url_youtube" target="_blank" pTooltip="คลิกดู" tooltipPosition="top"><i class="material-icons">open_in_browser</i></a></p>
     <a href="#modal1" (click)="getlistpcc(item)" class="secondary-content" pTooltip="ดูรายละเอียด" tooltipPosition="top"><i class="material-icons">search</i></a>
+    <p>วันที่บันทึก : {{item.d_update}}</p>
   </li>
 </ul>

@@ -6,6 +6,8 @@ import { ItemPccCformComponent } from './item-pcc-channel/item-pcc-cform/item-pc
 import { ItemListvdoComponent } from './item-pcc-channel/item-listvdo/item-listvdo.component';
 import { ItemPccImgformComponent } from './item-pcc-channel/item-pcc-imgform/item-pcc-imgform.component';
 import { ItemPccDetailComponent } from './item-pcc-channel/item-pcc-detail/item-pcc-detail.component';
+import { CLoginComponent } from './c-manu/c-login/c-login.component';
+import { PccHomelistComponent } from './c-home/pcc-homelist/pcc-homelist.component';
 
 
 
@@ -22,14 +24,18 @@ import { ItemPccDetailComponent } from './item-pcc-channel/item-pcc-detail/item-
         ItemPccCformComponent,
         ItemListvdoComponent,
         ItemPccImgformComponent,
-        ItemPccDetailComponent
+        ItemPccDetailComponent,
+        CLoginComponent,
+        PccHomelistComponent
     ],
     exports: [
         CSlideOutComponent,
         ItemPccCformComponent,
         ItemListvdoComponent,
         ItemPccImgformComponent,
-        ItemPccDetailComponent
+        ItemPccDetailComponent,
+        CLoginComponent,
+        PccHomelistComponent
     ]
 })
 export class ItemModule { } 

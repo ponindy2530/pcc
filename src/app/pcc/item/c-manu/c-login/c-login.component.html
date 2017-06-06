@@ -1,0 +1,5 @@
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li *ngIf="!tokenSignature"><a [href]="loginPage" pTooltip="เข้าสู่ระบบ" tooltipPosition="top">เข้าสู่ระบบ</a></li>
+            <li *ngIf="tokenSignature"><a href="javascript:void(0)" (click)="logout()" pTooltip="ออกจากระบบ" tooltipPosition="top">ออกจากระบบ</a></li>
+        </ul>
+        

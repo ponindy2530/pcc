@@ -8,11 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PccChannelComponent } from './pcc/pview/pcc-channel/pcc-channel.component';
+import { LoginComponent } from './pcc/pview/login/login.component';
+import { PccHomeComponent } from './pcc/pview/pcc-home/pcc-home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/pccchannel', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'pccchannel', component: PccChannelComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: PccHomeComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
@@ -20,7 +24,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PccChannelComponent
+    PccChannelComponent,
+    LoginComponent,
+    PccHomeComponent
   ],
   imports: [
     BrowserModule,

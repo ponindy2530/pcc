@@ -8,15 +8,17 @@ import * as _ from "lodash";
 })
 export class ItemListvdoComponent extends PSharedComponent implements OnInit, OnChanges {
   @Input() apiKeyVdoList: number;
-
+  @Input() apiCid: string;
   ngOnChanges() {
     let apiKey = this.apiKeyVdoList;
-    this.getData(apiKey);
+    let apiCid = this.apiCid;
+    this.getData(apiKey, apiCid);
+
   }
 
 
-  getData(apiKey) {
-    this._pSharedService.apiData(apiKey)
+  getData(apiKey, apiCid) {
+    this._pSharedService.apiData1(apiKey, apiCid)
       .subscribe(res => this.models = res,
       err => console.log(err),
       () => {

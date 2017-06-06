@@ -1,29 +1,29 @@
 <div class="container">
   <nav>
     <div class="nav-wrapper cyan">
-      <a href="javascript:void(0)" (click)="showform(3)" class="brand-logo"><i class="material-icons">view_list</i> PCC-CHANNEL</a>
+      <a href="javascript:void(0)" (click)="showform(3)" class="brand-logo"><i class="material-icons">view_list</i> แสดงข้อมูล UPLOAD</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="javascript:void(0)" (click)="showform(1)"><i class="fa fa-plus" aria-hidden="true"></i> VDO</a></li>
         <li><a href="javascript:void(0)" (click)="showform(2)"><i class="fa fa-plus" aria-hidden="true"></i> รูปภาพ</a></li>
       </ul>
     </div>
   </nav>
-  <app-item-pcc-cform *ngIf="pccformvdo"></app-item-pcc-cform>
+  <app-item-pcc-cform *ngIf="pccformvdo" (gtolist)="showform($event)"></app-item-pcc-cform>
 
-  <app-item-pcc-imgform *ngIf="pccformimg"></app-item-pcc-imgform>
+  <app-item-pcc-imgform *ngIf="pccformimg" (gtolist)="showform($event)"></app-item-pcc-imgform>
 
   <div class="row">
     <div class="col s12 m6 l6">
-      <div class="collection-header">
+      <div class="collection-header" *ngIf="listvdo">
         <h5> <i class="material-icons">video_library</i> <b>VDO</b></h5>
       </div>
-      <app-item-listvdo [apiKeyVdoList]="apiKeyVdoList1" (tolistpcc)="tolistpcc($event)"></app-item-listvdo>
+      <app-item-listvdo *ngIf="listvdo" [apiKeyVdoList]="apiKeyVdoList1" [apiCid]="objPayload.CID" (tolistpcc)="tolistpcc($event)"></app-item-listvdo>
     </div>
     <div class="col s12 m6 l6">
-      <div class="collection-header">
+      <div class="collection-header" *ngIf="listvdo1">
         <h5> <i class="material-icons">perm_media</i> <b>รูปภาพ</b></h5>
       </div>
-      <app-item-listvdo [apiKeyVdoList]="apiKeyVdoList2" (tolistpcc)="tolistpcc($event)"></app-item-listvdo>
+      <app-item-listvdo *ngIf="listvdo1" [apiKeyVdoList]="apiKeyVdoList2" [apiCid]="objPayload.CID" (tolistpcc)="tolistpcc($event)"></app-item-listvdo>
     </div>
   </div>
 

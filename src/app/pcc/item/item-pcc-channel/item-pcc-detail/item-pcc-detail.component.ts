@@ -13,7 +13,7 @@ export class ItemPccDetailComponent extends PSharedComponent implements OnInit, 
 
   ngOnChanges() {
     this.showfile = [];
-    console.log(this.getlisttopccdetail);
+    // console.log(this.getlisttopccdetail);
     // console.log(JSON.parse(this.getlisttopccdetail.files));
     let files = JSON.parse(this.getlisttopccdetail.files);
     this.getDataFile(files);
@@ -22,7 +22,7 @@ export class ItemPccDetailComponent extends PSharedComponent implements OnInit, 
   showfile: any = [];
   getDataFile(files) {
     if (files) {
-      console.log(files);
+      // console.log(files);
       this.showfile = files;
     }
   }
