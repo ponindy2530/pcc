@@ -3,8 +3,8 @@
     <div class="nav-wrapper cyan">
       <a href="javascript:void(0)" (click)="showform(3)" class="brand-logo"><i class="material-icons">view_list</i> แสดงข้อมูล ข้อมูล</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <!--<li><a href="javascript:void(0)" (click)="showform(1)"><i class="fa fa-plus" aria-hidden="true"></i> VDO</a></li>
-        <li><a href="javascript:void(0)" (click)="showform(2)"><i class="fa fa-plus" aria-hidden="true"></i> รูปภาพ</a></li>-->
+        <li><a href="javascript:void(0)" (click)="showform(4)"><i class="fa fa-youtube-play" aria-hidden="true"></i> VDO</a></li>
+        <li><a href="javascript:void(0)" (click)="showform(5)"><i class="fa fa-image" aria-hidden="true"></i> รูปภาพ</a></li>
       </ul>
     </div>
   </nav>
@@ -12,7 +12,7 @@
 
   <div class="row">
     <div class="col s12 m12 l12">
-      <app-pcc-homelist [apiKeyList]="apiKeyList"></app-pcc-homelist>
+      <app-pcc-homelist [apiKeyList]="apiKeyList" (tolistpcc)="tolistpcc($event)"></app-pcc-homelist>
     </div>
   </div>
 
@@ -22,4 +22,15 @@
 
 
 
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+
+    <app-item-pcc-detail *ngIf="pccdetail" [getlisttopccdetail]="getlisttopccdetail"></app-item-pcc-detail>
+  </div>
+  <div class="modal-footer">
+    <a href="javasctipt:void(0)" class="modal-action modal-close waves-effect waves-green btn-flat" (click)="onCloseModal()">ปิดหน้าต่าง</a>
+  </div>
 </div>

@@ -1,9 +1,12 @@
-<!--<fieldset>-->
+<fieldset>
 <h4>เรื่อง / หัวข้อ :: {{getlisttopccdetail.subject}}</h4>
 <p>ผู้ส่ง :: {{getlisttopccdetail.fullname}}</p>
-<p>สถานบริการ :: {{getlisttopccdetail.hcode}}</p>
-<!--</fieldset>-->
-<div class="masonry">
+<p>สถานบริการ :: {{getlisttopccdetail.hname}}</p>
+<p><b>รายละเอียด :</b> {{getlisttopccdetail.article}}</p>
+<p *ngIf="getlisttopccdetail.url_youtube!=''"><b>URL :</b> <a [href]="getlisttopccdetail.url_youtube" target="_blank" pTooltip="คลิกดู" tooltipPosition="top"><i class="material-icons">open_in_browser</i></a></p>
+<p><b>วันที่บันทึก :</b> {{getlisttopccdetail.d_update}}</p>
+</fieldset>
+<div class="masonry" *ngIf="countfile>=5">
   <div class="item" *ngFor="let item of showfile">
     <div class="card">
       <div class="card-image">
@@ -17,6 +20,23 @@
         <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little
           markup to use effectively.</p>
       </div>-->
+      <div class="card-action">
+        <a href="http://164.115.22.73/p/pon-api/pccfile/pcc_{{item.generatedName}}" download>ดาวน์โหลด</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row" *ngIf="countfile<5">
+  <div class="col s12 m4 l3" *ngFor="let item of showfile">
+    <div class="card">
+      <div class="card-image">
+        <video width="100%" controls *ngIf="getlisttopccdetail.st==1">
+          <source src="http://164.115.22.73/p/pon-api/pccfile/pcc_{{item.generatedName}}" type="video/mp4">
+        </video>
+        <img *ngIf="getlisttopccdetail.st==2" class="materialboxed" width="650" src="http://164.115.22.73/p/pon-api/pccfile/pcc_{{item.generatedName}}">
+      </div>
       <div class="card-action">
         <a href="http://164.115.22.73/p/pon-api/pccfile/pcc_{{item.generatedName}}" download>ดาวน์โหลด</a>
       </div>

@@ -35,4 +35,10 @@ export class PccHomelistComponent extends PSharedComponent implements OnInit, On
   ngOnInit() {
   }
 
+  @Output() tolistpcc = new EventEmitter();
+
+  getlistpcc(ev: any) {
+    this.tolistpcc.emit(ev);
+  }
+
 }
