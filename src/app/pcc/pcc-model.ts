@@ -7,4 +7,5 @@ export class Pcmodel {
     url_youtube: string;
     files: any;
     hcode: string;
+    st:number;
 }

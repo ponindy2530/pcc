@@ -1,0 +1,25 @@
+<!--<fieldset>-->
+<h4>เรื่อง / หัวข้อ :: {{getlisttopccdetail.subject}}</h4>
+<p>ผู้ส่ง :: {{getlisttopccdetail.fullname}}</p>
+<p>สถานบริการ :: {{getlisttopccdetail.hcode}}</p>
+<!--</fieldset>-->
+<div class="masonry">
+  <div class="item" *ngFor="let item of showfile">
+    <div class="card">
+      <div class="card-image">
+        <video width="100%" controls *ngIf="getlisttopccdetail.st==1">
+          <source src="http://164.115.22.73/p/pon-api/pccfile/pcc_{{item.generatedName}}" type="video/mp4">
+        </video>
+        <img *ngIf="getlisttopccdetail.st==2" class="materialboxed" width="650" src="http://164.115.22.73/p/pon-api/pccfile/pcc_{{item.generatedName}}">
+        <!--<span class="card-title">Card Title</span>-->
+      </div>
+      <!--<div class="card-content">
+        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little
+          markup to use effectively.</p>
+      </div>-->
+      <div class="card-action">
+        <a href="http://164.115.22.73/p/pon-api/pccfile/pcc_{{item.generatedName}}" download>ดาวน์โหลด</a>
+      </div>
+    </div>
+  </div>
+</div>

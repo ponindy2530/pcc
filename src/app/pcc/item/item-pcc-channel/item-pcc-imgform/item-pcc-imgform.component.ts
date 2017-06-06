@@ -1,15 +1,17 @@
+import { Component, OnInit } from '@angular/core';
 import { Pcmodel } from './../../../pcc-model';
 import { PSharedComponent } from './../../../../p-shared/p-component/p-shared.component';
-import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
 @Component({
-  selector: 'app-item-pcc-cform',
-  templateUrl: './item-pcc-cform.component.html',
-  styleUrls: ['./item-pcc-cform.component.css']
+  selector: 'app-item-pcc-imgform',
+  templateUrl: './item-pcc-imgform.component.html',
+  styleUrls: ['./item-pcc-imgform.component.css']
 })
-export class ItemPccCformComponent extends PSharedComponent implements OnInit {
+export class ItemPccImgformComponent extends PSharedComponent implements OnInit {
 
-  model = new Pcmodel();
+
+
+   model = new Pcmodel();
 
   ngOnInit() {
     this.updateId = 0;
@@ -49,7 +51,7 @@ export class ItemPccCformComponent extends PSharedComponent implements OnInit {
     if (this.ckfile == true) {
       this.model.files = JSON.stringify(this.pccfile);
     }
-    this.model.st = 1;
+    this.model.st = 2;
     this.pd = this.model;
     console.log(this.pd);
     this._pSharedService.addData('pcc_channel', 'id', this.updateId, this.pd)

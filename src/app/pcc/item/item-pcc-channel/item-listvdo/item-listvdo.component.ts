@@ -1,6 +1,6 @@
 import { PSharedComponent } from './../../../../p-shared/p-component/p-shared.component';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-
+import * as _ from "lodash";
 @Component({
   selector: 'app-item-listvdo',
   templateUrl: './item-listvdo.component.html',
@@ -20,11 +20,23 @@ export class ItemListvdoComponent extends PSharedComponent implements OnInit, On
       .subscribe(res => this.models = res,
       err => console.log(err),
       () => {
-        console.log(this.models);
+        // let t = this.models
+        // console.log(_.size(this.models));
+
+        // console.log(this.models);
+        // console.log(JSON.parse(this.models[0].files));
+
+
       });
   }
 
   ngOnInit() {
+  }
+
+  @Output() tolistpcc = new EventEmitter();
+
+  getlistpcc(ev: any) {
+    this.tolistpcc.emit(ev);
   }
 
 }
