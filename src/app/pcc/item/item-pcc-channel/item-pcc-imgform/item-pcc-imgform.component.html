@@ -10,7 +10,7 @@
           <form (ngSubmit)="save();">
             <div class="row">
               <div class="col s12 m12 l12">
-                <label class="pbz"> ชื่อเรื่อง / หัวข้อ</label>
+                <label class="pbz"> ชื่อเรื่อง / หัวข้อ **</label>
                 <input class="pbz" [(ngModel)]="model.subject" name="subject" id="subject" type="text">
               </div>
             </div>
@@ -18,6 +18,15 @@
               <div class="col s12 m12 l12">
                 <label class="pbz"> รายละเอียด</label>
                 <textarea [(ngModel)]="model.article" name="article" id="article" class="materialize-textarea"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <label class="pbz"> กลุ่ม PCC  **</label>
+                <select class="browser-default" [(ngModel)]="model.groups" name="groups" id="groups" [disabled]="!model.subject">
+                                <option [value]="0" disabled selected>ตัวเลือก</option>
+                                <option *ngFor="let item of models" [value]="item.id">{{item.groupsname}}</option>
+                            </select>
               </div>
             </div>
             <div class="row">
@@ -32,8 +41,8 @@
                 <p-growl [value]="msgs"></p-growl>
                 <!--accept=".mp4,.avi"-->
                 <!--.xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf-->
-                <p-fileUpload name="file" url="http://164.115.22.73/p/pon-api/uploadpccfile.php" (onUpload)="onUpload($event)" multiple="multiple"
-                  auto="auto" accept="image/*" maxFileSize="2000000">
+                <p-fileUpload name="file" url="http://164.115.22.73/p/pon-api/uploadpccfile.php"  (onUpload)="onUpload($event)"
+                  multiple="multiple" auto="auto" accept="image/*" maxFileSize="2000000">
                   <ng-template pTemplate type="content">
                     <ul *ngIf="uploadedFiles.length">
                       <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
@@ -46,7 +55,7 @@
             <div class="row">
               <div class="col s12 m12 l12">
                 <div class="col s12 center">
-                  <button class="waves-effect waves-light btn"><i class="material-icons left">add</i> บันทึก</button>
+                  <button class="waves-effect waves-light btn"  [disabled]="!model.groups"><i class="material-icons left">add</i> บันทึก</button>
                 </div>
               </div>
             </div>

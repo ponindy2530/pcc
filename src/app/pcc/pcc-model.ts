@@ -9,4 +9,5 @@ export class Pcmodel {
     hcode: string;
     st: number;
     hname: number;
+    groups:number = 0;
 }

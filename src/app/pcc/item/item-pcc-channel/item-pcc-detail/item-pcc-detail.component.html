@@ -4,6 +4,7 @@
 <p>สถานบริการ :: {{getlisttopccdetail.hname}}</p>
 <p><b>รายละเอียด :</b> {{getlisttopccdetail.article}}</p>
 <p *ngIf="getlisttopccdetail.url_youtube!=''"><b>URL :</b> <a [href]="getlisttopccdetail.url_youtube" target="_blank" pTooltip="คลิกดู" tooltipPosition="top"><i class="material-icons">open_in_browser</i></a></p>
+<p><b>กลุ่ม :</b> {{getlisttopccdetail.groupsname}}</p>
 <p><b>วันที่บันทึก :</b> {{getlisttopccdetail.d_update}}</p>
 </fieldset>
 <div class="masonry" *ngIf="countfile>=5">

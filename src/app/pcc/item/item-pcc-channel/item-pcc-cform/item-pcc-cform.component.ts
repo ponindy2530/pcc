@@ -13,6 +13,16 @@ export class ItemPccCformComponent extends PSharedComponent implements OnInit {
 
   ngOnInit() {
     this.updateId = 0;
+    this.getData(6);
+  }
+
+  getData(apiKey) {
+    this._pSharedService.apiData(apiKey)
+      .subscribe(res => this.models = res,
+      err => console.log(err),
+      () => {
+
+      });
   }
 
 

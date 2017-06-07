@@ -15,6 +15,16 @@ export class ItemPccImgformComponent extends PSharedComponent implements OnInit 
 
   ngOnInit() {
     this.updateId = 0;
+    this.getData(6);
+  }
+
+  getData(apiKey) {
+    this._pSharedService.apiData(apiKey)
+      .subscribe(res => this.models = res,
+      err => console.log(err),
+      () => {
+
+      });
   }
 
 
@@ -25,13 +35,14 @@ export class ItemPccImgformComponent extends PSharedComponent implements OnInit 
   ckfile: boolean = false;
   onUpload(event) {
     this.pccfile.push(JSON.parse(event.xhr.response));
-    console.log(this.pccfile);
+    // console.log(this.pccfile);
     this.ckfile = true;
+ 
     for (let file of event.files) {
       this.uploadedFiles.push(file);
     }
 
-    console.log(event);
+    // console.log(event);
 
 
     this.msgs = [];
@@ -79,5 +90,9 @@ export class ItemPccImgformComponent extends PSharedComponent implements OnInit 
       }
       );
   }
+
+  
+
+
 
 }
