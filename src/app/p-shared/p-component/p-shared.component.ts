@@ -37,6 +37,7 @@ export class PSharedComponent implements OnInit {
   tokenPayload: string;
   tokenSignature: string;
   objPayload: any;
+  objPayload1: any;
   ngOnInit() {
   }
 

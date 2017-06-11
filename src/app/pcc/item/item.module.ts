@@ -8,6 +8,7 @@ import { ItemPccImgformComponent } from './item-pcc-channel/item-pcc-imgform/ite
 import { ItemPccDetailComponent } from './item-pcc-channel/item-pcc-detail/item-pcc-detail.component';
 import { CLoginComponent } from './c-manu/c-login/c-login.component';
 import { PccHomelistComponent } from './c-home/pcc-homelist/pcc-homelist.component';
+import { ListpccComponent } from './listpcc/listpcc.component';
 
 
 
@@ -26,7 +27,8 @@ import { PccHomelistComponent } from './c-home/pcc-homelist/pcc-homelist.compone
         ItemPccImgformComponent,
         ItemPccDetailComponent,
         CLoginComponent,
-        PccHomelistComponent
+        PccHomelistComponent,
+        ListpccComponent
     ],
     exports: [
         CSlideOutComponent,
@@ -35,7 +37,8 @@ import { PccHomelistComponent } from './c-home/pcc-homelist/pcc-homelist.compone
         ItemPccImgformComponent,
         ItemPccDetailComponent,
         CLoginComponent,
-        PccHomelistComponent
+        PccHomelistComponent,
+        ListpccComponent
     ]
 })
 export class ItemModule { } 

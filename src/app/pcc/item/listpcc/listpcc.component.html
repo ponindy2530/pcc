@@ -1,0 +1,31 @@
+<p-dataTable sortOrder="-1" [value]="models" [rows]="10" [paginator]="true" [pageLinks]="5" [rowsPerPageOptions]="[20,40,60,80,100]"
+  [responsive]="true" sortField="catname" [globalFilter]="gb">
+  <p-column header="ลำดับ" [sortable]="true" [style]="{'width':'60px','text-align':'center'}">
+    <ng-template let-col let-rowData="rowData" let-rowIndex="rowIndex" pTemplate="body">
+      {{rowIndex+1}}
+    </ng-template>
+  </p-column>
+  <p-column styleClass="col-button" header="สถานะ" [style]="{'width':'60px','text-align':'center'}">
+    <ng-template let-item="rowData" let-rowIndex="rowIndex" pTemplate="body">
+      <a class="btn-floating btn-small red" *ngIf="item.st==1" pTooltip="VDO" tooltipPosition="top"> <i class="material-icons">play_arrow</i></a>
+      <a class="btn-floating btn-small light-blue" *ngIf="item.st==2" pTooltip="รูปภาพ" tooltipPosition="top"> <i class="material-icons">perm_media</i></a>
+    </ng-template>
+  </p-column>
+  <p-column field="subject" header="เรื่อง/หัวข้อ"></p-column>
+  <p-column field="article" header="รายละเอียด"></p-column>
+  <p-column field="hname" header="สถานบริการ" [style]="{'width':'100px','text-align':'center'}"></p-column>
+  <p-column styleClass="col-button" header="URL" [style]="{'width':'60px','text-align':'center'}">
+    <ng-template let-item="rowData" let-rowIndex="rowIndex" pTemplate="body">
+      <a *ngIf="item.url_youtube!=''" [href]="item.url_youtube" target="_blank" pTooltip="คลิกดู" tooltipPosition="top"><i class="material-icons">open_in_browser</i></a>
+    </ng-template>
+  </p-column>
+  <p-column field="d_update" header="วันที่" [style]="{'width':'100px','text-align':'center'}"></p-column>
+  <p-column styleClass="col-button" header="ดูรายละเอียด" [style]="{'width':'60px','text-align':'center'}">
+    <ng-template let-car="rowData" let-rowIndex="rowIndex" pTemplate="body">
+      <a *ngIf="tokenSignature1" href="#modal1" class="btn-floating btn-small purple" pTooltip="รายละเอียด" tooltipPosition="top"
+        (click)="getlistpcc(car)"> <i class="material-icons">search</i></a>
+      <a *ngIf="!tokenSignature1" href="javascript:void(0)" class="btn-floating btn-small purple" pTooltip="รายละเอียด" tooltipPosition="top"
+        (click)="getlistpcc(car)"> <i class="material-icons">search</i></a>
+    </ng-template>
+  </p-column>
+</p-dataTable>

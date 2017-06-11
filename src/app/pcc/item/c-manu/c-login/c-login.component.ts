@@ -9,20 +9,32 @@ import { Component, OnInit } from '@angular/core';
 export class CLoginComponent extends PSharedComponent implements OnInit {
 
 
-
+  tokenSignature1: any;
   ngOnInit() {
+    this.tokenSignature1 = this._cookieService.get('tokenSignature1');
+    // if (this.tokenSignature1) {
+    //   this.objPayload = JSON.parse(localStorage.getItem('tokenPayload1'));
 
-    const tokenPayload = localStorage.getItem('tokenPayload');
-    if (tokenPayload)
-      this.objPayload = JSON.parse(this._pLoginService.atou(localStorage.getItem('tokenPayload')));
+    // }
+    // console.log(this.tokenSignature1);
+    // this.logoutPage = this._pLoginService.loginPath('logout');
 
-    this.loginPage = this._pLoginService.loginPath('login');
-    this.logoutPage = this._pLoginService.loginPath('logout');
-    this.tokenSignature = this._cookieService.get('tokenSignature');
+
+    // const tokenPayload = localStorage.getItem('tokenPayload');
+    // if (tokenPayload)
+    //   this.objPayload = JSON.parse(this._pLoginService.atou(localStorage.getItem('tokenPayload')));
+
+    // this.loginPage = this._pLoginService.loginPath('login');
+    // this.logoutPage = this._pLoginService.loginPath('logout');
+    // this.tokenSignature = this._cookieService.get('tokenSignature');
   }
 
   logout() {
-    this._pLoginService.logout(this.logoutPage);
+    localStorage.removeItem('tokenPayload1');
+    this._cookieService.remove('tokenSignature1');
+    // this._pLoginService.logout(this.logoutPage);
+    // this._location.back();
+    window.location.reload();
   }
 
 }

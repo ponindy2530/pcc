@@ -24,9 +24,11 @@ export class PccHomeComponent extends PSharedComponent implements OnInit {
   }
 
   getlisttopccdetail: any;
+  tokenSignature1: string;
   tolistpcc(ev: any) {
-    const tokenPayload = localStorage.getItem('tokenPayload');
-    if (tokenPayload) {
+    this.tokenSignature1 = this._cookieService.get('tokenSignature1');
+    if (this.tokenSignature1) {
+      this.objPayload1 = JSON.parse(localStorage.getItem('tokenPayload1'));
       jQuery('.modal').modal({
         dismissible: true
       });
@@ -42,7 +44,7 @@ export class PccHomeComponent extends PSharedComponent implements OnInit {
     let loginPage = this._pLoginService.loginPath('login');
     swal({
       title: 'กรุณาเข้าสู่ระบบก่อน!',
-      text: 'เพื่อที่จะลงข้อมูลได้',
+      text: 'เพื่อดูข้อมูล',
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -50,8 +52,13 @@ export class PccHomeComponent extends PSharedComponent implements OnInit {
       confirmButtonText: 'เข้าสู่ระบบ',
       cancelButtonText: 'ยกเลิก',
     }).then(() => {
-      window.location.href = loginPage;
+      // window.location.href = loginPage;
+      this._router.navigate(['loginnew']);
       // console.log(loginPage);
+    }, (dismiss) => {
+      if (dismiss === 'cancel') {
+        this._router.navigate(['home']);
+      }
     });
   }
 

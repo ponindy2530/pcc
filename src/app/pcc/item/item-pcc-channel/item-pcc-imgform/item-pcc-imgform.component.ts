@@ -12,7 +12,8 @@ export class ItemPccImgformComponent extends PSharedComponent implements OnInit 
 
 
   model = new Pcmodel();
-
+  url: string = "http://164.115.22.73/p/pon-api/uploadpccfile.php";
+  // url: string = "http://127.0.0.1/p/pon-api/uploadpccfile.php";
   ngOnInit() {
     this.updateId = 0;
     this.getData(6);
@@ -37,7 +38,7 @@ export class ItemPccImgformComponent extends PSharedComponent implements OnInit 
     this.pccfile.push(JSON.parse(event.xhr.response));
     // console.log(this.pccfile);
     this.ckfile = true;
- 
+
     for (let file of event.files) {
       this.uploadedFiles.push(file);
     }
@@ -64,16 +65,17 @@ export class ItemPccImgformComponent extends PSharedComponent implements OnInit 
   }
 
   save() {
-    this.objPayload = JSON.parse(this._pLoginService.atou(localStorage.getItem('tokenPayload')));
+    this.objPayload1 = JSON.parse(localStorage.getItem('tokenPayload1'));
     // console.log(this.model);
     // console.log(this.updateId);
     if (this.ckfile == true) {
       this.model.files = JSON.stringify(this.pccfile);
     }
-    this.model.cid = this.objPayload.CID;
-    this.model.hcode = this.objPayload.HOSPCODE;
-    this.model.hname = this.objPayload.HOSPNAME;
-    this.model.fullname = `${this.objPayload.PRENAME}${this.objPayload.NAME}' '${this.objPayload.LASTNAME}`;
+    this.model.cid = this.objPayload1[0].id;
+    // this.model.hcode = this.objPayload.HOSPCODE;
+    // this.model.hname = this.objPayload.HOSPNAME;
+    // this.model.fullname = `${this.objPayload.PRENAME}${this.objPayload.NAME}' '${this.objPayload.LASTNAME}`;
+    this.model.fullname = this.objPayload1[0].usernames;
     this.model.st = 2;
     this.pd = this.model;
     console.log(this.pd);
@@ -91,7 +93,7 @@ export class ItemPccImgformComponent extends PSharedComponent implements OnInit 
       );
   }
 
-  
+
 
 
 

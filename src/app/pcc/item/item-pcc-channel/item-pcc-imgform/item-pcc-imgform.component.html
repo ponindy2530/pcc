@@ -41,7 +41,7 @@
                 <p-growl [value]="msgs"></p-growl>
                 <!--accept=".mp4,.avi"-->
                 <!--.xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf-->
-                <p-fileUpload name="file" url="http://164.115.22.73/p/pon-api/uploadpccfile.php"  (onUpload)="onUpload($event)"
+                <p-fileUpload name="file" [url]="url"  (onUpload)="onUpload($event)"
                   multiple="multiple" auto="auto" accept="image/*" maxFileSize="2000000">
                   <ng-template pTemplate type="content">
                     <ul *ngIf="uploadedFiles.length">

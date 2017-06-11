@@ -9,6 +9,7 @@ export class PSharedService {
   conDb: string = 'db_pcc';
 
   url: string = "http://164.115.22.73/";
+  // url: string = "http://127.0.0.1/"
   urlFd: string = "p/pon-api/";
   urlph: string = "api-164.php";
 

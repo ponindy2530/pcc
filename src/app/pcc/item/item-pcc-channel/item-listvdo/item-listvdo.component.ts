@@ -33,6 +33,7 @@ export class ItemListvdoComponent extends PSharedComponent implements OnInit, On
   }
 
   ngOnInit() {
+    
   }
 
   @Output() tolistpcc = new EventEmitter();

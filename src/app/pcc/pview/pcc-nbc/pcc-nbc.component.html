@@ -1,3 +1,25 @@
-<p>
-  pcc-nbc works!
-</p>
+<div class="container">
+  <nav>
+    <div class="nav-wrapper cyan">
+      <a href="javascript:void(0)" (click)="showform(9)" class="brand-logo"><i class="material-icons">view_list</i> แสดงข้อมูล นบส</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="javascript:void(0)" (click)="showform(10)"><i class="fa fa-youtube-play" aria-hidden="true"></i> VDO</a></li>
+        <li><a href="javascript:void(0)" (click)="showform(11)"><i class="fa fa-image" aria-hidden="true"></i> รูปภาพ</a></li>
+      </ul>
+    </div>
+  </nav>
+  <app-listpcc [apiKey]="apiKey" [param]="param" (tolistpcc)="tolistpcc($event)"></app-listpcc>
+</div>
+
+
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+
+    <app-item-pcc-detail *ngIf="pccdetail" [getlisttopccdetail]="getlisttopccdetail"></app-item-pcc-detail>
+  </div>
+  <div class="modal-footer">
+    <!--<a href="javasctipt:void(0)" class="modal-action modal-close waves-effect waves-green btn-flat" (click)="onCloseModal()">ปิดหน้าต่าง</a>-->
+  </div>
+</div>

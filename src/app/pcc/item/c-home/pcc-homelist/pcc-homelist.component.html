@@ -8,7 +8,8 @@
     <p><b>กลุ่ม :</b> {{item.groupsname}}</p>
     <p><b>รายละเอียด :</b> {{item.article}}</p>
     <p *ngIf="item.url_youtube!=''"><b>URL :</b> <a [href]="item.url_youtube" target="_blank" pTooltip="คลิกดู" tooltipPosition="top"><i class="material-icons">open_in_browser</i></a></p>
-    <a href="#modal1" (click)="getlistpcc(item)" class="secondary-content" pTooltip="ดูรายละเอียด" tooltipPosition="top"><i class="material-icons">search</i></a>
+    <a href="#modal1" *ngIf="!tokenSignature1" (click)="getlistpcc(item)" class="secondary-content" pTooltip="ดูรายละเอียด" tooltipPosition="top"><i class="material-icons">search</i></a>
+    <a href="javascript:void(0)" *ngIf="tokenSignature1" (click)="getlistpcc(item)" class="secondary-content" pTooltip="ดูรายละเอียด" tooltipPosition="top"><i class="material-icons">search</i></a>
     <p><b>วันที่บันทึก :</b> {{item.d_update}}</p>
   </li>
 </ul>

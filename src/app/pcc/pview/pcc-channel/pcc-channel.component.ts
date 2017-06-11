@@ -19,10 +19,14 @@ export class PccChannelComponent extends PSharedComponent implements OnInit {
   pccformimg: boolean = false; //ข้อมูลโชว์
   listvdo: boolean = false;
   listvdo1: boolean = false;
+  tokenSignature1: string;
   ngOnInit() {
-    const tokenPayload = localStorage.getItem('tokenPayload');
-    if (tokenPayload) {
-      this.objPayload = JSON.parse(this._pLoginService.atou(localStorage.getItem('tokenPayload')));
+    // const tokenPayload = localStorage.getItem('tokenPayload');
+    this.tokenSignature1 = this._cookieService.get('tokenSignature1');
+    if (this.tokenSignature1) {
+      this.objPayload1 = JSON.parse(localStorage.getItem('tokenPayload1'));
+      // console.log(this.objPayload[0].id);
+
       this.listvdo = true;
       this.listvdo1 = true;
     } else {
@@ -42,7 +46,8 @@ export class PccChannelComponent extends PSharedComponent implements OnInit {
       confirmButtonText: 'เข้าสู่ระบบ',
       cancelButtonText: 'ยกเลิก',
     }).then(() => {
-      window.location.href = loginPage;
+      // window.location.href = loginPage;
+      this._router.navigate(['loginnew']);
       // console.log(loginPage);
     }, (dismiss) => {
       if (dismiss === 'cancel') {
