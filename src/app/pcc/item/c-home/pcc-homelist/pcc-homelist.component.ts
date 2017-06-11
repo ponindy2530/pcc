@@ -32,7 +32,9 @@ export class PccHomelistComponent extends PSharedComponent implements OnInit, On
   }
 
 
+tokenSignature1:string;
   ngOnInit() {
+    this.tokenSignature1 = this._cookieService.get('tokenSignature1');
   }
 
   @Output() tolistpcc = new EventEmitter();
