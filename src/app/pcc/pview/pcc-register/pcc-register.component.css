@@ -1,0 +1,15 @@
+.pbz{
+    font-weight: bold;
+    font-size: 1em;
+    color: black;
+}
+
+input[disabled] {
+    color: black;
+}
+
+
+
+.ipb2{
+    background-color :#F5F5F5;
+}

@@ -17,6 +17,8 @@ export class ItemPccImgformComponent extends PSharedComponent implements OnInit 
   ngOnInit() {
     this.updateId = 0;
     this.getData(6);
+    this.objPayload1 = JSON.parse(localStorage.getItem('tokenPayload1'));
+    this.model.groups = this.objPayload1[0].groups;
   }
 
   getData(apiKey) {

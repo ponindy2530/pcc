@@ -21,8 +21,8 @@ export class LoginNewComponent extends PSharedComponent implements OnInit {
   }
 
   save() {
-    console.log(this.usernames);
-    console.log(this.passwords);
+    // console.log(this.usernames);
+    // console.log(this.passwords);
     let u = this.usernames;
     let p = this.passwords;
     this._pSharedService.apiData2(7, u, p)
@@ -45,9 +45,8 @@ export class LoginNewComponent extends PSharedComponent implements OnInit {
     this._pSharedService.apiData2(8, u, p)
       .subscribe(res => this.models1 = res,
       err => console.log(err), () => {
-        console.log(this.models1[0].groups);
         localStorage.setItem('tokenPayload1', JSON.stringify(this.models1));
-        this._cookieService.put('tokenSignature1', this.models1[0].groups);
+        this._cookieService.put('tokenSignature1', this.models1[0].id);
         window.location.reload();
       });
   }

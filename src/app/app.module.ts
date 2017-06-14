@@ -17,6 +17,7 @@ import { PccNbcComponent } from './pcc/pview/pcc-nbc/pcc-nbc.component';
 import { PccArjComponent } from './pcc/pview/pcc-arj/pcc-arj.component';
 import { PccKmComponent } from './pcc/pview/pcc-km/pcc-km.component';
 import { LoginNewComponent } from './pcc/pview/login-new/login-new.component';
+import { PccRegisterComponent } from './pcc/pview/pcc-register/pcc-register.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'pccnbc', component: PccNbcComponent },
   { path: 'pccarj', component: PccArjComponent },
   { path: 'pcckm', component: PccKmComponent },
+  { path: 'register', component: PccRegisterComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
@@ -47,7 +49,8 @@ const routes: Routes = [
     PccNbcComponent,
     PccArjComponent,
     PccKmComponent,
-    LoginNewComponent
+    LoginNewComponent,
+    PccRegisterComponent
   ],
   imports: [
     BrowserModule,

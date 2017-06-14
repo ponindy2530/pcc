@@ -1,6 +1,7 @@
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <!--<li *ngIf="!tokenSignature"><a [href]="loginPage" pTooltip="เข้าสู่ระบบ" tooltipPosition="top">เข้าสู่ระบบ</a></li>-->
-            <li *ngIf="!tokenSignature1"><a [routerLink]="'loginnew'" routerLinkActive="active" pTooltip="เข้าสู่ระบบ" tooltipPosition="top">เข้าสู่ระบบ</a></li>
-            <li *ngIf="tokenSignature1"><a href="javascript:void(0)" (click)="logout()" pTooltip="ออกจากระบบ" tooltipPosition="top">ออกจากระบบ</a></li>
-        </ul>
-        
+<ul id="nav-mobile" class="right hide-on-med-and-down">
+      <!--<li *ngIf="!tokenSignature"><a [href]="loginPage" pTooltip="เข้าสู่ระบบ" tooltipPosition="top">เข้าสู่ระบบ</a></li>-->
+      <li *ngIf="!tokenSignature1"><a [routerLink]="'register'" routerLinkActive="active" pTooltip="สมัครสมาชิก" tooltipPosition="top">สมัครสมาชิก</a></li>
+      <li *ngIf="!tokenSignature1"><a [routerLink]="'loginnew'" routerLinkActive="active" pTooltip="เข้าสู่ระบบ" tooltipPosition="top">เข้าสู่ระบบ</a></li>
+      <li *ngIf="tokenSignature1"><a href="javascript:void(0)" (click)="logout()" pTooltip="ออกจากระบบ" tooltipPosition="top">ชื่อผู้ใช้ : {{objPayload1[0].fullname}} | </a></li>
+      <li *ngIf="tokenSignature1"><a href="javascript:void(0)" (click)="logout()" pTooltip="ออกจากระบบ" tooltipPosition="top">ออกจากระบบ</a></li>
+</ul>

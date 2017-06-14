@@ -1,0 +1,97 @@
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <br />
+          <div class="container">
+            <br />
+            <div class="collection-header">
+              <h5> <i class="material-icons">mode_edit</i> <b>แบบฟอร์มสมัครสมาชิก </b></h5>
+            </div>
+            <form (ngSubmit)="save();">
+              <fieldset>
+                <div class="row">
+                  <div class="col s12 m6 l6">
+                    <label class="pbz"> ชื่อ - นามสกุล ***</label>
+                    <input class="pbz" [(ngModel)]="model.fullname" name="fullname" id="fullname" type="text" [disabled]="model.confirm">
+                  </div>
+                  <div class="col s12 m6 l6">
+                    <label class="pbz"> ตำแหน่ง</label>
+                    <input class="pbz" [(ngModel)]="model.position" name="position" id="position" type="text" [disabled]="!model.fullname || model.confirm">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m4 l4">
+                    <label class="pbz"> รหัสสถานบริการ 5 หลัก</label>
+                    <input class="pbz" [(ngModel)]="model.hcode" name="hcode" id="hcode" type="text" [disabled]="!model.fullname || model.confirm">
+                  </div>
+                  <div class="col s12 m4 l4">
+                    <label class="pbz"> E - Mail</label>
+                    <input class="pbz" [(ngModel)]="model.email" name="email" id="email" type="text" [disabled]="!model.fullname || model.confirm">
+                  </div>
+                  <div class="col s12 m4 l4">
+                    <label class="pbz"> เบอร์โทร</label>
+                    <input class="pbz" [(ngModel)]="model.tol" name="tol" id="tol" type="number" [disabled]="!model.fullname || model.confirm">
+                  </div>
+                </div>
+              </fieldset>
+              <div class="row">
+                <div class="col s12 m6 l6">
+                  <label class="pbz"> Username *** </label>
+                  <input class="pbz" [(ngModel)]="model.usernames" name="usernames" id="usernames" type="text" (mouseout)="ckuser($event)"
+                    [disabled]="!model.fullname || model.confirm">
+                </div>
+                <div class="col s12 m6 l6">
+                  <label class="pbz"> Password ***</label>
+                  <input class="pbz" [(ngModel)]="model.passwords" name="passwords" id="passwords" type="password" [disabled]="!model.usernames || model.confirm">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <label class="pbz"> กลุ่ม PCC  ***</label>
+                  <select class="browser-default" [(ngModel)]="model.groups" name="groups" id="groups" [disabled]="!model.passwords || model.confirm">
+                                <option [value]="0" disabled selected>ตัวเลือก</option>
+                                <option *ngFor="let item of models" [value]="item.id">{{item.groupsname}}</option>
+                            </select>
+                </div>
+              </div>
+              <fieldset>
+                <div class="row">
+                  <div class="col s12 m6 l6">
+                    <label class="pbz"> นอก หรือ ใน สสจ.</label>
+                    <input type="radio" [(ngModel)]="model.in_out" name="in_out" id="in_out1" [value]="1" [disabled]="model.confirm" />
+                    <label for="in_out1">นอก</label>
+                    <input type="radio" [(ngModel)]="model.in_out" name="in_out" id="in_out2" [value]="2" [disabled]="model.confirm" />
+                    <label for="in_out2">ใน</label>
+                  </div>
+
+                  <div class="col s12 m6 l6">
+                    <label class="pbz"> สถานะ</label>
+                    <input type="radio" [(ngModel)]="model.st" name="st" id="st1" [value]="1" [disabled]="model.confirm" />
+                    <label for="st1">ทั่วไป</label>
+                    <input type="radio" [(ngModel)]="model.st" name="st" id="st2" [value]="2" [disabled]="model.confirm" />
+                    <label for="st2">Admin</label>
+                  </div>
+                </div>
+              </fieldset>
+              <br />
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <div class="col s12 center">
+
+                    <input type="checkbox" id="confirm" [(ngModel)]="model.confirm" name="confirm" [value]="1" [disabled]="!model.groups" />
+                    <label for="confirm">ยืนยันข้อมูลการสมัครสมาชิก</label>
+                    <br /> <br />
+                    <button class="waves-effect waves-light btn" [disabled]="!model.confirm"><i class="material-icons left">add</i> บันทึก</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

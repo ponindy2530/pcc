@@ -12,10 +12,11 @@ export class CLoginComponent extends PSharedComponent implements OnInit {
   tokenSignature1: any;
   ngOnInit() {
     this.tokenSignature1 = this._cookieService.get('tokenSignature1');
-    // if (this.tokenSignature1) {
-    //   this.objPayload = JSON.parse(localStorage.getItem('tokenPayload1'));
+    // console.log(this.tokenSignature1);
+    if (this.tokenSignature1) {
+      this.objPayload1 = JSON.parse(localStorage.getItem('tokenPayload1'));
 
-    // }
+    }
     // console.log(this.tokenSignature1);
     // this.logoutPage = this._pLoginService.loginPath('logout');
 

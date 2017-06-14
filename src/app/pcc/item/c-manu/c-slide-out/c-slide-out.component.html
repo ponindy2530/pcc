@@ -7,11 +7,12 @@
       <!--<a href="javascript:void(0)"><img class="circle" [src]="objPayload.IMAGE"></a>-->
       <!--<a href="javascript:void(0)"><span class="name">{{objPayload.PRENAME}}{{ objPayload.NAME }} {{objPayload.LASTNAME}}</span></a>-->
       <a href="javascript:void(0)"><span class="name">{{objPayload[0].usernames}}</span></a>
-      
+
       <!--<a href="javascript:void(0)"><span class="email">{{ objPayload.HOSPNAME }}</span></a>-->
     </div>
   </li>
-  <li *ngIf="!tokenSignature1"><a [href]="loginPage" >เข้าสู่ระบบ</a></li>
+  <li *ngIf="!tokenSignature1"><a [href]="loginPage">สมัครสมาชิก</a></li>
+  <li *ngIf="!tokenSignature1"><a [href]="loginPage">เข้าสู่ระบบ</a></li>
   <li *ngIf="tokenSignature1"><a href="javascript:void(0)" (click)="logout()">ออกจากระบบ</a></li>
   <li>
     <div class="divider"></div>

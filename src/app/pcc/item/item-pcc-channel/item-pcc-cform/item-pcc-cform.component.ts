@@ -15,7 +15,8 @@ export class ItemPccCformComponent extends PSharedComponent implements OnInit {
   ngOnInit() {
     this.updateId = 0;
     this.getData(6);
-    this.model.groups = this._cookieService.get('tokenSignature1');
+    this.objPayload1 = JSON.parse(localStorage.getItem('tokenPayload1'));
+    this.model.groups = this.objPayload1[0].groups;
 
   }
 
@@ -74,13 +75,13 @@ export class ItemPccCformComponent extends PSharedComponent implements OnInit {
     }
     // console.log(this.objPayload1[0].usernames);
     // console.log(this.objPayload1[0].id);
-    this.model.cid = this.objPayload1[0].id;
+    this.model.usernames = this.objPayload1[0].id;
     // this.model.hcode = this.objPayload.HOSPCODE;
     // this.model.hname = this.objPayload.HOSPNAME;
     // this.model.fullname = `${this.objPayload.PRENAME}${this.objPayload.NAME}' '${this.objPayload.LASTNAME}`;
-    this.model.fullname = this.objPayload1[0].usernames;
+    this.model.fullname = this.objPayload1[0].fullname;
     // this.model.cid = this.objPayload.CID;
-    // this.model.hcode = this.objPayload.HOSPCODE;
+    this.model.hcode = this.objPayload1[0].hcode;
     // this.model.hname = this.objPayload.HOSPNAME;
     // this.model.fullname = `${this.objPayload.PRENAME}${this.objPayload.NAME}' '${this.objPayload.LASTNAME}`;
     this.model.st = 1;
