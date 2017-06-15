@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col s12 m6 l4" *ngFor="let item of kkkk">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" [src]="item.source">
+            <span class="card-title">COP {{item.cup}}</span>
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4 truncate">{{item.title}}</span>
+            <p class="activator">{{item.alt}} <i class="material-icons right">more_vert</i></p>
+            <p><a href="javascript:void(0)" class="activator">ดูเพิ่มเติม</a></p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{item.title}}<i class="material-icons right">close</i></span>
+            <p>รายละเอียด : {{item.article}}</p>
+            <p>กลุ่ม : COP{{item.cup}}</p>
+            <p>อัพเดท : {{item.alt}}</p>
+          </div>
+        </div>
+
+        <!--<div class="card">
+          <div class="card-image">
+            <img [src]="item.source">
+            <span class="card-title">COP {{item.cup}}</span>
+          </div>
+          <div class="card-content">
+            <p>{{item.article}}</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+          </div>
+        </div>-->
+      </div>
+    </div>
+  </div>
+</div>

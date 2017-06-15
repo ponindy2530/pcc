@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="card">
+    <div class="card-image">
+      <nav class="blue darken-2">
+        <div class="nav-wrapper">
+          <div class="divider"></div>
+          <ul class="left">
+            <li><a href="javascript:void(0)" (click)="sho(20)"><i class="material-icons left">view_module</i> ข้อมูลบันทึกกิจกรรม รูปภาพ</a></li>
+            <li><a href="javascript:void(0)" (click)="sho(21)"><i class="material-icons left">play_circle_outline</i> COP 1</a></li>
+            <li><a href="javascript:void(0)" (click)="sho(22)"><i class="material-icons left">play_circle_outline</i> COP 2</a></li>
+            <li><a href="javascript:void(0)" (click)="sho(23)"><i class="material-icons left">play_circle_outline</i> COP 3</a></li>
+          </ul>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a [routerLink]="'../home'" routerLinkActive="active"><i class="fa fa-youtube-play" aria-hidden="true"></i> VDO</a></li>
+            <li><a [routerLink]="'../home2'" routerLinkActive="active"><i class="fa fa-image" aria-hidden="true"></i> รูปภาพ</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+<app-showimg [apiKey]="apiKey"></app-showimg>
+</div>

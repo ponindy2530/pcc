@@ -1,3 +1,50 @@
+<div class="container" *ngIf="pccshow">
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="card">
+        <div class="card-image">
+          <nav class="blue darken-2">
+            <div class="nav-wrapper">
+              <div class="divider"></div>
+              <ul class="left">
+                <li><a href="javascript:void(0)" (click)="showform(3)"><i class="material-icons left">view_module</i> แสดงข้อมูล UPLOAD | ชื่อผู้ใช้ : {{objPayload1[0].fullname}} | กลุ่ม : {{objPayload1[0].groupsname}}</a></li>
+              </ul>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="javascript:void(0)" (click)="showform(1)" pTooltip="เพิ่มข้อมูล VDO" tooltipPosition="top"><i class="fa fa-plus" aria-hidden="true"></i> VDO</a></li>
+                <li><a href="javascript:void(0)" (click)="showform(2)" pTooltip="เพิ่มข้อมูล รูปภาพ" tooltipPosition="top"><i class="fa fa-plus" aria-hidden="true"></i> รูปภาพ</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <!--<div class="collection-header" *ngIf="listvdo">
+            <h5> <i class="material-icons">video_library</i> <b>VDO</b></h5>
+          </div>-->
+          <app-item-listvdo *ngIf="listvdo" [apiKeyVdoList]="apiKeyVdoList1" [apiCid]="objPayload1[0].id" (tolistpcc)="tolistpcc($event)" (toDatalist)="toDatalist($event)"></app-item-listvdo>
+        </div>
+        <!--<div class="col s12 m6 l6">
+          <div class="collection-header" *ngIf="listvdo1">
+            <h5> <i class="material-icons">perm_media</i> <b>รูปภาพ</b></h5>
+          </div>
+          <app-item-listvdo *ngIf="listvdo1" [apiKeyVdoList]="apiKeyVdoList2" [apiCid]="objPayload1[0].id" (tolistpcc)="tolistpcc($event)" (toDatalist)="toDatalist($event)"></app-item-listvdo>
+        </div>-->
+      </div>
+
+      <!--วัสดุทันตกรรม-->
+      <app-item-pcc-cform *ngIf="pccformvdo" (gtolist)="showform($event)" [editDataForm]="editDataForm"></app-item-pcc-cform>
+
+      <app-item-pcc-imgform *ngIf="pccformimg" (gtolist)="showform($event)" [editDataForm]="editDataForm"></app-item-pcc-imgform>
+      <!--จบ-->
+    </div>
+  </div>
+
+</div>
+
+
+
+<!--
 <div class="container">
   <nav>
     <div class="nav-wrapper cyan">
@@ -33,7 +80,7 @@
 
 
 
-</div>
+</div>-->
 
 
 

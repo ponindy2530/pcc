@@ -9,6 +9,10 @@ import { ItemPccDetailComponent } from './item-pcc-channel/item-pcc-detail/item-
 import { CLoginComponent } from './c-manu/c-login/c-login.component';
 import { PccHomelistComponent } from './c-home/pcc-homelist/pcc-homelist.component';
 import { ListpccComponent } from './listpcc/listpcc.component';
+import { ShowhomevdoComponent } from './showhomevdo/showhomevdo.component';
+import { Showhomevdo2Component } from './showhomevdo/showhomevdo2.component';
+import { ShowimgComponent } from './showimg/showimg.component';
+import { ConferenceComponent } from './conference/conference.component';
 
 
 
@@ -28,7 +32,11 @@ import { ListpccComponent } from './listpcc/listpcc.component';
         ItemPccDetailComponent,
         CLoginComponent,
         PccHomelistComponent,
-        ListpccComponent
+        ListpccComponent,
+        ShowhomevdoComponent,
+        Showhomevdo2Component,
+        ShowimgComponent,
+        ConferenceComponent
     ],
     exports: [
         CSlideOutComponent,
@@ -38,7 +46,11 @@ import { ListpccComponent } from './listpcc/listpcc.component';
         ItemPccDetailComponent,
         CLoginComponent,
         PccHomelistComponent,
-        ListpccComponent
+        ListpccComponent,
+        ShowhomevdoComponent,
+        Showhomevdo2Component,
+        ShowimgComponent,
+        ConferenceComponent
     ]
 })
 export class ItemModule { } 

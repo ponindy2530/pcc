@@ -1,3 +1,4 @@
+import { Pcmodel } from './../../pcc-model';
 import { PSharedComponent } from './../../../p-shared/p-component/p-shared.component';
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
@@ -10,7 +11,7 @@ declare var jQuery: any;
 export class PccChannelComponent extends PSharedComponent implements OnInit {
 
 
-
+  pccshow: boolean = false;
   apiKeyVdoList1: number = 1;
   apiKeyVdoList2: number = 2;
   pccdetail: boolean = false; //ข้อมูลโชว์
@@ -26,7 +27,7 @@ export class PccChannelComponent extends PSharedComponent implements OnInit {
     if (this.tokenSignature1) {
       this.objPayload1 = JSON.parse(localStorage.getItem('tokenPayload1'));
       // console.log(this.objPayload[0].id);
-
+      this.pccshow = true;
       this.listvdo = true;
       this.listvdo1 = true;
     } else {
@@ -76,17 +77,37 @@ export class PccChannelComponent extends PSharedComponent implements OnInit {
       this.pccformimg = false;
       this.listvdo = false;
       this.listvdo1 = false;
+      this.editDataForm = new Pcmodel();
     } else if (ev == 2) {
       this.pccformvdo = false;
       this.pccformimg = true;
       this.listvdo = false;
       this.listvdo1 = false;
+      this.editDataForm = new Pcmodel();
     } else {
       this.pccformvdo = false;
       this.pccformimg = false;
       this.listvdo = true;
       this.listvdo1 = true;
     }
+  }
+  editDataForm: Pcmodel;
+  toDatalist(ev) {
+    // console.log(ev);
+    if (ev.st == 1) {
+      this.pccformvdo = true;
+      this.pccformimg = false;
+      this.listvdo = false;
+      this.listvdo1 = false;
+      this.editDataForm = ev;
+    } else {
+      this.pccformvdo = false;
+      this.pccformimg = true;
+      this.listvdo = false;
+      this.listvdo1 = false;
+      this.editDataForm = ev;
+    }
+
   }
 
 }

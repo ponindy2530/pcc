@@ -18,6 +18,7 @@ import { PccArjComponent } from './pcc/pview/pcc-arj/pcc-arj.component';
 import { PccKmComponent } from './pcc/pview/pcc-km/pcc-km.component';
 import { LoginNewComponent } from './pcc/pview/login-new/login-new.component';
 import { PccRegisterComponent } from './pcc/pview/pcc-register/pcc-register.component';
+import { Home2Component } from './pcc/pview/home2/home2.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'pccarj', component: PccArjComponent },
   { path: 'pcckm', component: PccKmComponent },
   { path: 'register', component: PccRegisterComponent },
+  { path: 'home2', component: Home2Component },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
@@ -50,7 +52,8 @@ const routes: Routes = [
     PccArjComponent,
     PccKmComponent,
     LoginNewComponent,
-    PccRegisterComponent
+    PccRegisterComponent,
+    Home2Component
   ],
   imports: [
     BrowserModule,

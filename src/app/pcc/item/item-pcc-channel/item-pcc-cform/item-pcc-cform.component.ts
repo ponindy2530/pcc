@@ -1,19 +1,28 @@
 import { Pcmodel } from './../../../pcc-model';
 import { PSharedComponent } from './../../../../p-shared/p-component/p-shared.component';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 import swal from 'sweetalert2';
 @Component({
   selector: 'app-item-pcc-cform',
   templateUrl: './item-pcc-cform.component.html',
   styleUrls: ['./item-pcc-cform.component.css']
 })
-export class ItemPccCformComponent extends PSharedComponent implements OnInit {
+export class ItemPccCformComponent extends PSharedComponent implements OnInit, OnChanges {
+
+  @Input() editDataForm: Pcmodel;
+  ngOnChanges(): void {
+    console.log(this.editDataForm.id);
+
+    if (this.editDataForm.id) {
+      this.model = this.editDataForm;
+      // this.pccfile = this.editDataForm.files;
+    }
+  }
 
   model = new Pcmodel();
   url: string = "http://164.115.22.73/p/pon-api/uploadpccfile.php";
   // url: string = "http://127.0.0.1/p/pon-api/uploadpccfile.php";
   ngOnInit() {
-    this.updateId = 0;
     this.getData(6);
     this.objPayload1 = JSON.parse(localStorage.getItem('tokenPayload1'));
     this.model.groups = this.objPayload1[0].groups;
@@ -84,6 +93,12 @@ export class ItemPccCformComponent extends PSharedComponent implements OnInit {
     this.model.hcode = this.objPayload1[0].hcode;
     // this.model.hname = this.objPayload.HOSPNAME;
     // this.model.fullname = `${this.objPayload.PRENAME}${this.objPayload.NAME}' '${this.objPayload.LASTNAME}`;
+    if (this.editDataForm.id) {
+      this.updateId = this.editDataForm.id;
+    } else {
+      this.updateId = 0;
+    }
+
     this.model.st = 1;
     this.pd = this.model;
     console.log(this.pd);

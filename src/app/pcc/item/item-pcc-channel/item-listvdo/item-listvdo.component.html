@@ -1,14 +1,56 @@
 <ul class="collection">
-  <li class="collection-item avatar" *ngFor="let item of models">
+  <li class="collection-item avatar" *ngFor="let item of models;let i = index">
     <i class="material-icons circle red" *ngIf="item.st==1">play_arrow</i>
     <i class="material-icons circle  light-blue" *ngIf="item.st==2">perm_media</i>
     <span class="title"><b>เรื่อง / หัวข้อ :</b> {{item.subject}}</span>
     <p><b>ผู้ส่ง :</b> {{item.fullname}}</p>
-    <p><b>สถานบริการ :</b> {{item.hname}}</p>
+    <!--<p><b>สถานบริการ :</b> {{item.hname}}</p>-->
     <p><b>กลุ่ม :</b> {{item.groupsname}}</p>
-    <!--<p><b>รายละเอียด :</b> {{item.article}}</p>-->
+    <p><b>รายละเอียด :</b> {{item.article}}</p>
     <p *ngIf="item.url_youtube!=''"><b>URL :</b> <a [href]="item.url_youtube" target="_blank" pTooltip="คลิกดู" tooltipPosition="top"><i class="material-icons">open_in_browser</i></a></p>
     <a href="#modal1" (click)="getlistpcc(item)" class="secondary-content" pTooltip="ดูรายละเอียด" tooltipPosition="top"><i class="material-icons">search</i></a>
+    <p><b>สถานะ :</b>
+      <i *ngIf="item.stlock==1" class="fa fa-unlock" aria-hidden="true" pTooltip="public" tooltipPosition="top"></i>
+      <i *ngIf="item.stlock==2" class="fa fa-lock" aria-hidden="true" pTooltip="private" tooltipPosition="top"></i>
+    </p>
     <p><b>วันที่บันทึก :</b> {{item.d_update}}</p>
+    <p><b>แก้ไขข้อมูล :</b> <a href="javascript:void(0)" (click)="edit(item)" pTooltip="แก้ไขข้อมูล" tooltipPosition="top"> <i class="fa fa-pencil " aria-hidden="true"></i></a></p>
+    <p><b>ลบข้อมูล :</b> <a href="javascript:void(0)" (click)="delete(item,i)" pTooltip="ลบข้อมูล" tooltipPosition="top"> <i class="fa fa-trash" aria-hidden="true"></i></a></p>
   </li>
 </ul>
+
+<!--<p-dataScroller [value]="models" [rows]="5" [loader]="loadButton">
+  <p-header>
+    Click Load Button at Footer to Load More
+  </p-header>
+  <ng-template let-car pTemplate="item">
+    <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:16px;padding:20px;border-bottom:1px solid #D5D5D5">
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-3" style="text-align:center"><i class="fa fa-search" (click)="selectCar(car)" style="cursor:pointer;float:left;margin-top:40px"></i><img src="showcase/resources/demo/images/car/{{car.brand}}-big.gif"></div>
+        <div class="ui-grid-col-9">
+          <div class="ui-grid ui-grid-responsive ui-fluid">
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">เรื่อง / หัวข้อ: </div>
+              <div class="ui-grid-col-10">{{car.subject}}</div>
+            </div>
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">Year: </div>
+              <div class="ui-grid-col-10">{{car.year}}</div>
+            </div>
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">Brand: </div>
+              <div class="ui-grid-col-10">{{car.brand}}</div>
+            </div>
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">Color: </div>
+              <div class="ui-grid-col-10">{{car.color}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <p-footer>
+    <button #loadButton type="text" icon="fa-refresh" pButton label="Load"></button>
+  </p-footer>
+</p-dataScroller>-->

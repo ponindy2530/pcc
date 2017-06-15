@@ -19,6 +19,18 @@ export class PccHomeComponent extends PSharedComponent implements OnInit {
 
   pccdetail: boolean = false; //ข้อมูลโชว์
 
+  shoid: number = 13;
+  shoid1: number = 14;
+  shoid2: number = 15;
+  shoid3: number = 16;
+  idcop1: number = 1;
+  idcop2: number = 2;
+  idcop3: number = 3;
+
+  so1: boolean = true;
+  so2: boolean = true;
+  so3: boolean = true;
+  so4: boolean = true;
   showform(ev: number) {
     this.apiKeyList = ev;
   }
@@ -60,6 +72,35 @@ export class PccHomeComponent extends PSharedComponent implements OnInit {
         this._router.navigate(['home']);
       }
     });
+  }
+
+
+  sho(ev) {
+    if (ev == 1) {
+      this.so1 = true;
+      this.so2 = true;
+      this.so3 = true;
+      this.so4 = true;
+      this.shoid = 13;
+    } else if (ev == 2) {
+      this.so1 = true;
+      this.so2 = true;
+      this.so3 = false;
+      this.so4 = false;
+      this.shoid = 17;
+    } else if (ev == 3) {
+      this.so1 = true;
+      this.so2 = false;
+      this.so3 = true;
+      this.so4 = false;
+      this.shoid = 18;
+    } else {
+      this.so1 = true;
+      this.so2 = false;
+      this.so3 = false;
+      this.so4 = true;
+      this.shoid = 19;
+    }
   }
 
 }

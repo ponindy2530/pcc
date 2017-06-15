@@ -7,7 +7,7 @@ declare var jQuery: any;
 })
 export class AppComponent implements OnInit {
 
-  title = 'Reality Pcc Show And Share As Nakonbpatom';
+  title = 'REALITY PCC SHOW AND SHARE AS NAKORNPATHOM';
 
 
   ngOnInit() {

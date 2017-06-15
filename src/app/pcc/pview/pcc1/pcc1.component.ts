@@ -12,7 +12,9 @@ export class Pcc1Component extends PSharedComponent implements OnInit {
 
 
 
-  apiKey: number = 9;
+  apiKey: number = 24; //ประชุม
+
+
   param: number = 1;
   pccdetail: boolean = false; //ข้อมูลโชว์
   ngOnInit() {

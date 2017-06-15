@@ -1,0 +1,14 @@
+<p-dataTable [value]="cars">
+  <p-column header="ลำดับ" [style]="{'width':'60px','text-align':'center'}">
+    <ng-template let-col let-rowData="rowData" let-rowIndex="rowIndex" pTemplate="body">
+      {{rowIndex+1}}
+    </ng-template>
+  </p-column>
+  <p-column field="vin" header="วันที่/เวลา"></p-column>
+  <p-column field="year" header="เรื่องประชุมชี้แจง"></p-column>
+  <p-column field="brand" header="เนื้อหาการประชุม"></p-column>
+  <p-column field="color" header="ฝ่ายผู้จัด"></p-column>
+  <p-column field="color" header="เป้าหมายผู้เข้าร่วม"></p-column>
+  <p-column field="color" header="จำนวนผู้เข้าร่วม"></p-column>
+  <p-column field="color" header="ลงทะเบียน"></p-column>
+</p-dataTable>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 import { Pcmodel } from './../../../pcc-model';
 import { PSharedComponent } from './../../../../p-shared/p-component/p-shared.component';
 import swal from 'sweetalert2';
@@ -7,8 +7,16 @@ import swal from 'sweetalert2';
   templateUrl: './item-pcc-imgform.component.html',
   styleUrls: ['./item-pcc-imgform.component.css']
 })
-export class ItemPccImgformComponent extends PSharedComponent implements OnInit {
+export class ItemPccImgformComponent extends PSharedComponent implements OnInit, OnChanges {
+  @Input() editDataForm: Pcmodel;
+  ngOnChanges(): void {
+    console.log(this.editDataForm.id);
 
+    if (this.editDataForm.id) {
+      this.model = this.editDataForm;
+      // this.pccfile = this.editDataForm.files;
+    }
+  }
 
 
   model = new Pcmodel();
@@ -73,14 +81,21 @@ export class ItemPccImgformComponent extends PSharedComponent implements OnInit 
     if (this.ckfile == true) {
       this.model.files = JSON.stringify(this.pccfile);
     }
-    this.model.cid = this.objPayload1[0].id;
+    this.model.usernames = this.objPayload1[0].id;
     // this.model.hcode = this.objPayload.HOSPCODE;
     // this.model.hname = this.objPayload.HOSPNAME;
     // this.model.fullname = `${this.objPayload.PRENAME}${this.objPayload.NAME}' '${this.objPayload.LASTNAME}`;
-    this.model.fullname = this.objPayload1[0].usernames;
+    this.model.fullname = this.objPayload1[0].fullname;
+    // this.model.cid = this.objPayload.CID;
+    this.model.hcode = this.objPayload1[0].hcode;
+    if (this.editDataForm.id) {
+      this.updateId = this.editDataForm.id;
+    } else {
+      this.updateId = 0;
+    }
     this.model.st = 2;
     this.pd = this.model;
-    console.log(this.pd);
+    // console.log(this.pd);
     this._pSharedService.addData('pcc_channel', 'id', this.updateId, this.pd)
       .subscribe(resproducts => this.addmodel = resproducts,
       err => console.log(err),

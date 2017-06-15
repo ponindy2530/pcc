@@ -19,7 +19,9 @@ import {
     FieldsetModule,
     FileUploadModule,
     GrowlModule,
-    MessagesModule
+    MessagesModule,
+    DataScrollerModule,
+    GalleriaModule
 } from 'primeng/primeng';
 
 import {
@@ -85,7 +87,9 @@ import * as highcharts from 'highcharts';
         FieldsetModule,
         FileUploadModule,
         GrowlModule,
-        MessagesModule
+        MessagesModule,
+        DataScrollerModule,
+        GalleriaModule
 
 
     ]
